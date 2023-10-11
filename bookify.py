@@ -10,9 +10,10 @@ with open("key.txt", "r") as key_file:
 openai.api_key = api_key
 
 # Define the user message
+username = input("Enter Spotify Username: ")
 book_name = input("Enter Book Name/Movie Title: ")
 author_name = input("Enter Author/Movie Director: ")
-book_input = f"Please provide a filled-out JSON file in this format {{\n  \"playlist_name\": \"\",\n  \"playlist_description\": \"\",\n  \"playlist_songs\": [\"\"]\n}}\nWith 10 songs from the last 50 years that fit the vibe of the book/movie \"{book_name}\" by {author_name}. Do not respond with anything other than the JSON file. If you can include songs from the soundtrack. Do not respond with anything other than the JSON file."
+book_input = f"based on the synopsis, country of origin, language, and vibe of the book, Please provide a filled-out JSON file in this format {{\n  \"playlist_name\": \"\",\n  \"playlist_description\": \"\",\n  \"playlist_songs\": [\"\"]\n}}\nWith 10 songs from the last 50 years that fit the vibe of the book/movie \"{book_name}\" by {author_name} for the spotify api. Do not respond with anything other than the JSON file. If you can include songs from the soundtrack. The songs should be relevant to the intended audience, setting of book, etc.,. Do not respond with anything other than the JSON file."
 user_message = {"role": "user", "content": book_input}
 
 # Create a chat completion request
@@ -32,7 +33,6 @@ redirect_uri = "http://127.0.0.1:8080/"
 
 # User-specific settings
 scope = 'playlist-modify-public'
-username = 'wyanaveen'
 
 try:
     # Authenticate with Spotify
