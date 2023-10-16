@@ -1,0 +1,52 @@
+.header-div { 
+  height: 70px; 
+  width: 100%;
+  display: flex;
+  align-items: center;  
+  justify-content: space-between;
+}
+
+.left { 
+  height: 100%;
+  display: flex; 
+  align-items: center;
+  margin-left: 20px;
+}
+
+.bookify-icon {
+  width: 50px;
+  height: 50px;
+  filter: invert(100%);
+}
+
+.app-name {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.right { 
+  margin-right: 20px;
+  width: 204px;
+  display: flex;
+  justify-content: right;
+}
+
+.log-out-link {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.log-out-link:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
