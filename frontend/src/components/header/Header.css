@@ -1,36 +1,40 @@
 .header-div { 
-  height: 70px; 
+  height: 100px; 
   width: 100%;
   display: flex;
   align-items: center;  
   justify-content: space-between;
 }
 
-.left { 
+.header-left { 
   height: 100%;
   display: flex; 
   align-items: center;
-  margin-left: 20px;
+  margin-left: 25px;
 }
 
-.bookify-icon {
+.header-bookify-icon {
   width: 50px;
   height: 50px;
   filter: invert(100%);
 }
 
-.app-name {
+.header-app-name {
+  margin-top: 0px;
+  margin-bottom: 0px;
   margin-left: 10px;
   margin-right: 10px;
   font-size: 38px;
   font-weight: bold;
 }
 
-.right { 
-  margin-right: 20px;
+.header-right { 
+  margin-right: 25px;
   width: 204px;
   display: flex;
+  align-items: center;
   justify-content: right;
+
 }
 
 .log-out-link {
