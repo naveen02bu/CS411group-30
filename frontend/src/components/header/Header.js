@@ -10,6 +10,7 @@ function Header() {
         <p className='header-app-name'>Bookify</p>
       </div>
         <div className='header-right' >
+          <NavLink className='review-link' to='/review'>Write a review</NavLink>
           <NavLink className='log-out-link' to='/'>Log out</NavLink>
         </div>
     </div>

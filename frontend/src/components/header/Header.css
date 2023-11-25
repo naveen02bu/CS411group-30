@@ -30,11 +30,22 @@
 
 .header-right { 
   margin-right: 25px;
-  width: 204px;
+  width: 185px;
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: space-between;
 
+}
+
+.review-link {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.review-link:hover {
+  text-decoration: underline;
 }
 
 .log-out-link {

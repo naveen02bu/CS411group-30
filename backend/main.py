@@ -63,7 +63,8 @@ def callback():
     # Unsuccessful
     # If there is an error in the request, return error message
     if 'error' in request.args:
-        return jsonify({"error": request.args['error']})
+        print("Error:", request.args['error'])
+        return redirect('http://localhost:3000')
     # Successful 
     # If code is in request, send a request to token url in order to store token info in a session
     if 'code' in request.args: 
