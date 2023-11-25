@@ -1,6 +1,10 @@
 import requests
 import urllib.parse
+import json
+import os
 
+from openai import OpenAI
+from dotenv import load_dotenv
 from datetime import datetime
 from flask import Flask, redirect, request, jsonify, session
 from flask_cors import CORS, cross_origin
@@ -9,16 +13,23 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 CORS(app)
 
-app.secret_key = '35252352-3242324'
+# Load environment variables
+load_dotenv()
 
-CLIENT_ID = '125b735b568642cebd8bf395b25d7074' 
-CLIENT_SECRET = 'f155917a69b9418eabd4fb654e4388b9' 
+# Secret key for session
+app.secret_key = os.getenv('SECRET_KEY')
+
+# Spotify credentials
+CLIENT_ID = os.getenv('CLIENT_ID')
+CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+
+# Spotify endpoints
 REDIRECT_URI = 'http://localhost:5000/callback'
-
 AUTH_URL = 'https://accounts.spotify.com/authorize' 
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
 API_BASE_URL = 'https://api.spotify.com/v1/'
 
+new_playlist_id = ''
 # Base endpoint
 @app.route('/') 
 def index():
@@ -92,9 +103,9 @@ def get_playlist():
         'Authorization': f"Bearer {session['access_token']}"
     }
    
-    response = requests.get(API_BASE_URL + 'me/playlists', headers=headers)
-    playlists = response.json()
-    return jsonify(playlists)
+    # Get songs of most recent playlist
+    response = requests.get(API_BASE_URL + f"playlists/{new_playlist_id}/tracks", headers=headers)
+    return jsonify(response.json())
 
 # Endpoint for when token needs to be refreshed
 @app.route('/refresh-token')
@@ -127,6 +138,33 @@ def create_playlist():
     data = request.json 
     title = data['title']
     author = data['author'] 
+ 
+   
+    # Use OpenAI 
+    # Define the user message
+    book_input = f"based on the synopsis, country of origin, language, and vibe of the book, Please provide a filled-out JSON file in this format {{\n  \"playlist_name\": \"\",\n  \"playlist_description\": \"\",\n  \"playlist_songs\": [\"\"]\n}}\nWith 10 songs from the last 50 years that fit the vibe of the book/movie \"{title}\" by {author} for the spotify api. The songs must be in this format: 'Artist - Song name' where 'Artist' and 'Song name' are replaced with the actual artist and song name. Do not respond with anything other than the JSON file. If you can include songs from the soundtrack. The songs should be relevant to the intended audience, setting of book, etc.,. Do not respond with anything other than the JSON file."
+    user_message = {"role": "user", "content": book_input}
+
+
+    os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
+    client = OpenAI()
+    
+    print('Creating response...') 
+    
+    # Create a chat completion request
+    completion = client.chat.completions.create(
+    model='gpt-3.5-turbo',
+    messages=[user_message],
+    )
+
+
+    # Extract and parse the assistant's reply as JSON
+    completion_message = completion.choices[0].message.content
+    playlist_info = json.loads(completion_message)
+
+    # Create a new playlist
+    playlist_name = playlist_info['playlist_name']
+    playlist_description = playlist_info['playlist_description']
 
     # Create a new playlist
     headers = {
@@ -135,17 +173,34 @@ def create_playlist():
     }
 
     playlist_data = {
-        'name': title,
-        'description': author,
+        'name': playlist_name,
+        'description': playlist_description,
         'public': True
     }
+
+    print(completion_message)
+    print('Creating playlist...')
+
+    # Create a list of songs to add to the playlist
+    list_of_songs = []
+    for song in playlist_info['playlist_songs']:
+        result = requests.get(API_BASE_URL + f'search?q={song}&type=track', headers=headers).json()
+        if result['tracks']['items']:
+            list_of_songs.append(result['tracks']['items'][0]['uri'])
 
     # Make the request to create the playlist
     response = requests.post(API_BASE_URL + 'me/playlists', headers=headers, json=playlist_data)
 
+    # Add songs to the playlist 
+    if list_of_songs:
+        playlist_id = response.json()['id']
+        requests.post(API_BASE_URL + f'playlists/{playlist_id}/tracks', headers=headers, json={'uris': list_of_songs})
+
     if response.status_code == 201:
         playlist_data = response.json()
-        # Extract relevant information from the playlist_data if needed
+        # Extract relevant information from the playlist_data if needed    
+        global new_playlist_id
+        new_playlist_id = playlist_data.get('id')    
         print("Playlist created:", playlist_data)
         return jsonify({"success": True, "playlist_id": playlist_data.get('id')})
     else:

@@ -1,0 +1,14 @@
+.results-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  min-height: 100vh;
+  width: 100%;
+  background-color: midnightblue;
+  position: relative;
+}
+
+.results-title {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}

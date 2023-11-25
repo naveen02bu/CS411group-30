@@ -1,0 +1,17 @@
+.footer-div { 
+  height: 80px;
+  bottom: 0px;
+  position: absolute; 
+  width: 100%; 
+  display: flex; 
+  justify-content: right; 
+  align-items: center;
+}
+
+.footer-right { 
+  margin-right: 15px;
+}
+
+.spotify-logo { 
+  height: 50px;
+}
