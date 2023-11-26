@@ -1,0 +1,25 @@
+.song-link { 
+  text-decoration: none; 
+  color: white; 
+  font-size: 15px; 
+  font-weight: bold; 
+}
+
+.song-link:hover { 
+  opacity: 0.7;
+}
+
+.song-image { 
+  width: 200px; 
+  height: 200px;
+}
+
+.song-name { 
+  margin: 0px;
+}
+
+.song-artist { 
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: 300;
+}
