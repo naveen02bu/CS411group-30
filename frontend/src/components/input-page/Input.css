@@ -18,13 +18,22 @@
   font-weight: bold;
 }
 
+.input-info { 
+  font-size: 25px;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  display: flex;
+  width: 478px; 
+  padding: 20px;
+}
+
 .input-middle { 
   border: 1px solid white;
   padding-top: 30px;
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 40px;
-  margin-top: 140px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,7 +103,7 @@ input {
   display: flex; 
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .input-loading-text { 
