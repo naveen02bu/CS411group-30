@@ -1,6 +1,5 @@
 import './Input.css';
 import Header from '../header/Header'
-import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
 import { useState } from 'react';
 
@@ -54,7 +53,6 @@ function Input() {
   return (
     <div className='input-div'>
       <Header />
-      <Nav />
         <h1 className='input-title'>Book</h1>
         <div className='input-middle'>
           <h2 className='input-directions'>Enter a book title and author</h2>

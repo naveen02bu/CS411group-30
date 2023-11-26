@@ -4,17 +4,61 @@
   align-items: center;  
   min-height: 100vh;
   width: 100%;
-  background-color: midnightblue;
   position: relative;
+ background-color: midnightblue;
 }
 
 .results-title {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: 32px;
   font-weight: bold;
+}
+
+.results-text { 
+  font-size: 22px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+.playlist-link { 
+  color: white;
+  font-size: 18px;
+  margin-top: 0px;
+  margin-bottom: 7px;
+}
+
+.playlist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+  margin-top: 20px;
+  margin-bottom: 80px; 
+  width: 1120px;
+}
+
+@media (max-width: 1180px) {
+  .playlist-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 890px;
+  }
+}
+
+@media (max-width: 950px) {
+  .playlist-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 660px;
+  }
+}
+
+@media (max-width: 720px) {
+  .playlist-grid {
+    grid-template-columns: 1fr 1fr;
+    width: 430px;
+  }
+}
+
+.song-image { 
+  width: 150px; 
+  height: 150px;
 }
