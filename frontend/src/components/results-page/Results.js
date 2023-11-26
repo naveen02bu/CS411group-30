@@ -1,22 +1,27 @@
 import './Results.css';
-import Header from '../header/Header'
-import Nav from '../nav/Nav';
-import { useEffect} from 'react';
+import Header from '../header/Header';
+import { useState, useEffect} from 'react';
 import Footer from '../footer/Footer';
+import Song from '../song/Song';
 
 
 function Results() {
-  
-  var Loaded = false;
 
+  // State 
+  const [songs, setSongs] = useState([]); // Array of songs
+  const [playlistLink, setPlaylistLink] = useState({}); // Link to playlist
+
+  var Loaded = false;
+  // Effect
+  // This effect runs only once after the first render.
   useEffect(() => { 
     if (Loaded == false) {
-      showPlaylists();
+      showPlaylist();
       Loaded = true;
     }
   }, [])
 
-  const showPlaylists = () => {
+  const showPlaylist = () => {
     // Make request to Flask backend's /login endpoint
     fetch('http://localhost:5000/playlists', { 
       credentials: 'include'
@@ -31,12 +36,8 @@ function Results() {
       .then(data => {
         // Handle the data, e.g., update the UI with the playlists
         console.log(data);
-        // Append images 
-        data.items.forEach(playlist => {
-          const img = document.createElement('img');
-          img.src = playlist.track.album.images[0].url;
-          document.querySelector('.results-div').append(img);
-        });
+        setSongs(data.tracks.items);
+        setPlaylistLink(data.external_urls.spotify);
       })
       .catch(error => {
         // Handle the error, e.g., display an error message to the user
@@ -47,8 +48,14 @@ function Results() {
   return (
     <div className='results-div'>
       <Header />
-      <Nav />
       <h1 className='results-title'>Playlist</h1>
+      <h2 className='results-text'>Check it out on your Spotify:&nbsp;</h2>
+      <a className='playlist-link' href={`${playlistLink}`}>{`${playlistLink}`}</a>
+      <div className='playlist-grid'>
+        {songs.map(song => (
+          <Song key={song.track.id} song={song} />
+        ))}
+      </div>
       <Footer />
     </div>
   )
