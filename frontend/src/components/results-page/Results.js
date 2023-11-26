@@ -49,8 +49,14 @@ function Results() {
     <div className='results-div'>
       <Header />
       <h1 className='results-title'>Playlist</h1>
-      <h2 className='results-text'>Check it out on your Spotify:&nbsp;</h2>
-      <a className='playlist-link' href={`${playlistLink}`}>{`${playlistLink}`}</a>
+      {songs.length > 0 ? (
+        <>
+          <h2 className='results-text'>Check it out on your Spotify:&nbsp;</h2>
+          <a className='playlist-link' href={`${playlistLink}`}>
+            {`${playlistLink}`}
+          </a>
+        </>
+      ) : null}
       <div className='playlist-grid'>
         {songs.map(song => (
           <Song key={song.track.id} song={song} />
