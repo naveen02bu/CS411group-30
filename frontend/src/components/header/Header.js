@@ -1,6 +1,7 @@
 import './Header.css';
 import { NavLink } from 'react-router-dom';
 import bookifyIcon from '../../images/bookify-icon.png';
+import Nav from '../nav/Nav';
 
 function Header() { 
   return (
@@ -9,10 +10,11 @@ function Header() {
         <img className='header-bookify-icon' src={bookifyIcon}/>
         <p className='header-app-name'>Bookify</p>
       </div>
-        <div className='header-right' >
-          <NavLink className='review-link' to='/review'>Write a review</NavLink>
-          <NavLink className='log-out-link' to='/'>Log out</NavLink>
-        </div>
+      <Nav />
+      <div className='header-right' >
+        <NavLink className='review-link' to='/review'>Write a review</NavLink>
+        <NavLink className='log-out-link' to='/'>Log out</NavLink>
+      </div>
     </div>
   )
 }
