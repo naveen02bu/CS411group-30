@@ -20,11 +20,10 @@
 
 .input-info { 
   font-size: 25px;
-  margin-top: 40px;
+  margin-top: 50px;
   margin-bottom: 0px;
   display: flex;
   width: 478px; 
-  padding: 20px;
 }
 
 .input-middle { 
@@ -33,7 +32,7 @@
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 40px;
-  margin-top: 30px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +44,7 @@
 }
 
 .input-form { 
-  margin-top: 20px;
+  margin: 0px;
 }
 
 .input-section { 

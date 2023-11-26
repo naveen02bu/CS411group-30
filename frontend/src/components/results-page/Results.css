@@ -28,6 +28,10 @@
   margin-bottom: 7px;
 }
 
+.playlist-link:hover { 
+  color: rgb(30, 203, 222);
+}
+
 .playlist-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
