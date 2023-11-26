@@ -1,5 +1,5 @@
 .nav-div { 
-  height: 70px; 
+  height: 60px; 
   display: flex;
   align-items: center;  
   justify-content: center;
@@ -10,12 +10,12 @@
 }
 
 .active { 
-  border-bottom: 5px solid rgb(30, 203, 222);
-  height: 65px; 
+  border-bottom: 4px solid rgb(30, 203, 222);
+  height: 55px; 
 }
 
 .icon-div { 
-  height: 70px;
+  height: 60px;
   width: 100px;
   display: flex;
   justify-content: center;
