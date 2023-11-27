@@ -4,6 +4,7 @@ import Input from './components/input-page/Input';
 import Login from './components/login-page/Login'; 
 import Results from './components/results-page/Results'; 
 import Error from './components/error-page/Error';
+import Review from './components/review-page/Review';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/book" element={<Input />} />
         <Route path="/playlist" element={<Results />} />
         <Route path="*" element={<Error />} />
+        <Route path="/review-page" element={<Review />} />
       </Routes>
      </BrowserRouter>
     </div>
