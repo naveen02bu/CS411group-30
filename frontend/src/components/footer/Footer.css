@@ -1,5 +1,5 @@
 .footer-div { 
-  height: 80px;
+  height: 90px;
   bottom: 0px;
   position: absolute; 
   width: 100%; 
@@ -14,4 +14,5 @@
 
 .spotify-logo { 
   height: 50px;
+
 }

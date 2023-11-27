@@ -1,5 +1,4 @@
 import './Footer.css';
-import { NavLink } from 'react-router-dom';
 import spotifyLogo from './spotify-logo.png';
 
 function Footer() { 
