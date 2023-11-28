@@ -15,7 +15,7 @@ function App() {
         <Route path="/book" element={<Input />} />
         <Route path="/playlist" element={<Results />} />
         <Route path="*" element={<Error />} />
-        <Route path="/review-page" element={<Review />} />
+        <Route path="/review" element={<Review />} />
       </Routes>
      </BrowserRouter>
     </div>
