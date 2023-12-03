@@ -14,7 +14,7 @@ function Form() {
                     
 
                     <label className="labelWithColor"> SpotifyID: 
-                        <input type="text" />
+                        <input placeholder="Type Here.."type="text" />
                     </label>
 
                     <label  className="labelWithColor">How Would You Rate The Quality of the Spotify Playlists?
