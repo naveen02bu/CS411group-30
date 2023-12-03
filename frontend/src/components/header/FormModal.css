@@ -15,14 +15,15 @@
   margin: auto;
   padding: 10px;
   
-  width: 50%; /* Adjust the width as needed */
-  max-width: 470px; /* Set a maximum width for better responsiveness */
+  width: 50%; 
+  max-width: 470px; 
+  position: relative;
 }
 
 .close {
- position: absolute;
- top: 105px; /* Adjust top position as needed */
- right: 220px; /* Adjust right position as needed */
+  position: absolute;
+ top: 105px; 
+ right: 2px;
  cursor: pointer;
  font-size: 17px;
  color: #888;
