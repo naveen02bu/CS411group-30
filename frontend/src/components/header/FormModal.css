@@ -19,3 +19,11 @@
   max-width: 470px; /* Set a maximum width for better responsiveness */
 }
 
+.close {
+ position: absolute;
+ top: 105px; /* Adjust top position as needed */
+ right: 220px; /* Adjust right position as needed */
+ cursor: pointer;
+ font-size: 17px;
+ color: #888;
+}
