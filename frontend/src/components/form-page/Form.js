@@ -17,7 +17,7 @@ function Form() {
                         <input placeholder="Type Here.."type="text" />
                     </label>
 
-                    <label  className="labelWithColor">How Would You Rate The Quality of the Spotify Playlists?
+                    <label  className="labelWithColor">How Would You Rate The Quality of the Spotify Playlist?
                         
                     <input placeholder="e.g. 5" type="text"/>
                      
