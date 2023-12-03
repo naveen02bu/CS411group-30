@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import bookifyIcon from '../../images/bookify-icon.png';
 import Nav from '../nav/Nav';
 import Form from '../form-page/Form'; // Import the Form component
+import './FormModal.css';
 
 
 function Header() { 
@@ -25,7 +26,10 @@ function Header() {
       </div>
       <Nav />
       <div className='header-right' >
-        <button onClick={openFormModal}>Write a review</button>
+      <div onClick={openFormModal} style={{ cursor: 'pointer'}}>
+       Write a review
+        </div>
+
         {isFormModalOpen && (
           <div className="form-modal">
             <div className="form-modal-content">
