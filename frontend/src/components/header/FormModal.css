@@ -1,5 +1,4 @@
 .form-modal {
-  
   position: fixed;
   z-index: 1;
   left: 0;
@@ -8,13 +7,11 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
- 
 }
+
 .form-modal-content {
-  
   margin: auto;
   padding: 10px;
-  
   width: 50%; 
   max-width: 470px; 
   position: relative;
@@ -22,9 +19,9 @@
 
 .close {
   position: absolute;
- top: 105px; 
- right: 2px;
- cursor: pointer;
- font-size: 17px;
- color: #888;
+  top: 105px; 
+  right: 2px;
+  cursor: pointer;
+  font-size: 17px;
+  color: #888;
 }

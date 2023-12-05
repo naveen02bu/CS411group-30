@@ -42,6 +42,7 @@
   font-size: 15px;
   font-weight: bold;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .review-link:hover {

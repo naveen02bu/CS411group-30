@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Header.css';
+import './FormModal.css';
 import { NavLink } from 'react-router-dom';
 import bookifyIcon from '../../images/bookify-icon.png';
 import Nav from '../nav/Nav';
 import Form from '../form-page/Form'; // Import the Form component
-import './FormModal.css';
 
 
 function Header() { 
@@ -26,9 +26,9 @@ function Header() {
       </div>
       <Nav />
       <div className='header-right' >
-      <div onClick={openFormModal} style={{ cursor: 'pointer'}}>
+      <div className='review-link' onClick={openFormModal}>
        Write a review
-        </div>
+      </div>
 
         {isFormModalOpen && (
           <div className="form-modal">
