@@ -1,8 +1,8 @@
 import './Results.css';
 import Header from '../header/Header';
-import { useState, useEffect} from 'react';
 import Footer from '../footer/Footer';
 import Song from '../song/Song';
+import { useState, useEffect} from 'react';
 
 
 function Results() {
