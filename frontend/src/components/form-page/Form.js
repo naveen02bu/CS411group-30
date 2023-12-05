@@ -31,7 +31,7 @@ function Form() {
                         ></textarea>
                     </label>
 
-                    <label className="labelWithColor">Did You Encounter Any Delays While Using The Application? <br/> If Yes, At Which Point Did You Experience Them?
+                    <label className="labelWithColor">Did You Encounter Any Delays While Using The Application? If Yes, At Which Point Did You Experience Them?
                         <textarea
                             placeholder="Type Here.."
                             rows = {5}
