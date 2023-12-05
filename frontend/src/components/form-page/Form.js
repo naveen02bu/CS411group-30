@@ -46,11 +46,14 @@ function Form() {
                             cols = {50}
                         ></textarea>
                     </label>
-                       
+
+                    <button type="submit" className='submit-button'>Submit</button>
+
                 </form>
              
              </div>  
             )
         }
     
-export default Form
+export default Form;
+
