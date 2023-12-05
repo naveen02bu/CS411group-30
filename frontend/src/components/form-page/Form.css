@@ -18,6 +18,7 @@ Form body {
 .Form-div {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     background-color: #fff;
     box-shadow: 1px 1px 10px 10px #ddd;
     margin: auto; /* This will center the form horizontally */
@@ -30,5 +31,20 @@ form input, textarea{
     flex-direction: column;
 }
 
+.submit-button{
+    background-color: rgb(233, 249, 249);
+   
+    
+    padding: 2px;
+    border-radius: 1px;
+    font-size: 15px;
+    font-family: "Poppins";
+    cursor: pointer;
 
+    align-self: flex-end;
+    
+    /* Add margin to create space between the button and the form */
+    margin-top: 12px; /* Adjust the top margin as needed */
+    margin-left: 364px;
+}
 
