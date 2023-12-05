@@ -143,7 +143,7 @@ def create_playlist():
    
     # Use OpenAI 
     # Define the user message
-    book_input = f"based on the synopsis, country of origin, language, and vibe of the book, Please provide a filled-out JSON file in this format {{\n  \"playlist_name\": \"\",\n  \"playlist_description\": \"\",\n  \"playlist_songs\": [\"\"]\n}}\nWith 10 songs from the last 50 years that fit the vibe of the book/movie \"{title}\" by {author} for the spotify api. The songs must be in this format: 'Artist - Song name' where 'Artist' and 'Song name' are replaced with the actual artist and song name. There must be no duplicate songs. Do not respond with anything other than the JSON file. If you can include songs from the soundtrack. The songs should be relevant to the intended audience, setting of book, etc.,. Do not respond with anything other than the JSON file."
+    book_input = f"based on the synopsis, genre, setting, language, and vibe of the book, Please provide a filled-out JSON file in this format {{\n  \"playlist_name\": \"\",\n  \"playlist_description\": \"\",\n  \"playlist_songs\": [\"\"]\n}}\nWith 10 songs from the last 50 years that fit the vibe of the book/movie \"{title}\" by {author} for the spotify api. The songs must be in this format: 'Artist - Song name' where 'Artist' and 'Song name' are replaced with the actual artist and song name. There must be no duplicate songs. Do not respond with anything other than the JSON file. If you can include songs from the soundtrack. The songs should be relevant to the intended audience, setting of book, etc.,. Do not respond with anything other than the JSON file."
     user_message = {"role": "user", "content": book_input}
 
 

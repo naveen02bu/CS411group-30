@@ -1,8 +1,6 @@
 import './Login.css';
 import axios from 'axios'; 
 import bookifyIcon from '../../images/bookify-icon.png';
-import Footer from '../footer/Footer.js';
-
 
 function Login() {
 

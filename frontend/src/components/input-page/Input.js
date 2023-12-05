@@ -54,7 +54,7 @@ function Input() {
     <div className='input-div'>
       <Header />
         <h1 className='input-title'>Book</h1>
-        <h2 className='input-info'>The playlist will be created based on the genre, setting, language, mood, tone, and themes.</h2>
+        <h2 className='input-info'>The playlist will be created based on the synopsis, genre, mood, setting, language, and themes.</h2>
         <div className='input-middle'>
           <h2 className='input-directions'>Enter a book title and author</h2>
 
