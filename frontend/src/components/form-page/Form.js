@@ -6,20 +6,45 @@ function Form() {
 
     const handleChange = (event) => {
         setMyRating(event.target.value)
-    }
-   
-        return (
-            <div className='Form-div'>
-               <form>
-                    
+    };
 
+    const handleSubmit = (event) => {
+        event.preventDefault();  // Prevents the default form submission behavior
+
+        // Provides access to each textbox 
+        const spotifyID = event.target.elements.spotifyID.value;
+        const rateQuality = event.target.elements.rateQuality.value;
+        const overallExperience = event.target.elements.overallExperience.value;
+        const delay = event.target.elements.delay.value;
+        const features = event.target.elements.features.value;
+
+        // Created an object to send to the backend 
+        const feedbackData = { 
+            spotifyID: spotifyID,
+            rateQuality: rateQuality,
+            overallExperience: overallExperience,
+            delay: delay,
+            features: features, 
+          }; 
+
+          console.log('Feedback Data:', feedbackData); // To verify data in website's console
+
+          //Submit data to backend
+    };
+
+        return (
+
+            <div className='Form-div'>
+               
+                 <form onSubmit={handleSubmit} className='input-feedback'> 
+                    
                     <label className="labelWithColor"> SpotifyID: 
-                        <input placeholder="Type Here.."type="text" />
+                        <input placeholder="Type Here.." type="text" name="spotifyID" />
                     </label>
 
                     <label  className="labelWithColor">How Would You Rate The Quality of the Spotify Playlist?
                         
-                    <input placeholder="e.g. 5" type="text"/>
+                    <input placeholder="e.g. 5" type="text" name="rateQuality"/>
                      
                     </label>
 
@@ -28,6 +53,7 @@ function Form() {
                             placeholder="Type Here.."
                             rows = {5}
                             cols = {50}
+                            name = "overallExperience"
                         ></textarea>
                     </label>
 
@@ -36,6 +62,7 @@ function Form() {
                             placeholder="Type Here.."
                             rows = {5}
                             cols = {50}
+                            name = "delay"
                         ></textarea>
                     </label>
 
@@ -44,6 +71,7 @@ function Form() {
                             placeholder="Type Here.."
                             rows = {5}
                             cols = {50}
+                            name = "features"
                         ></textarea>
                     </label>
 

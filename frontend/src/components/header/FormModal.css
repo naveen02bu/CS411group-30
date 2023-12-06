@@ -20,8 +20,8 @@
 .close {
   position: absolute;
   top: 105px; 
-  right: 7px;
+  right:0px;
   cursor: pointer;
   font-size: 25px;
-  color: #888;
+  color: #ffffff;
 }
