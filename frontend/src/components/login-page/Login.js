@@ -1,15 +1,20 @@
 import './Login.css';
-import axios from 'axios'; 
 import bookifyIcon from '../../images/bookify-icon.png';
 
 function Login() {
 
-  const handleLogin = () => { 
-    // Make request to Flask backend's /login endpoint 
-    axios.get('http://localhost:5000/login') 
+  const handleLogin = () => {
+    // Make request to Flask backend's /login endpoint
+    fetch('http://localhost:5000/login')
       .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
         // Redirect the user to the Spotify login page
-        window.location.href = response.data.auth_url;
+        window.location.href = data.auth_url;
       })
       .catch(error => {
         // Handle the error, e.g., display an error message to the user
