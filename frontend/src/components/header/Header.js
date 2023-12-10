@@ -37,7 +37,8 @@ function Header() {
               <span className="close" onClick={closeFormModal}>&times;</span>
 
               {/* Render the Form component */}
-              <Form />
+
+                <Form onClose={closeFormModal} />
             </div>
           </div>
         )}

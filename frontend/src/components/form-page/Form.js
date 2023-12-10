@@ -1,8 +1,10 @@
 import './Form.css'
+import { useNavigate } from 'react-router-dom';
 import React, {useState} from "react"
 
-function Form() {
+function Form({onClose}) {
     const [Rating, setMyRating] = useState("1")
+   
 
     const handleChange = (event) => {
         setMyRating(event.target.value)
@@ -28,7 +30,8 @@ function Form() {
           }; 
 
           console.log('Feedback Data:', feedbackData); // To verify data in website's console
-
+          onClose();
+         
           //Submit data to backend
     };
 
