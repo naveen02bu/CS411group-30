@@ -38,6 +38,9 @@ function Form({onClose}) {
         return (
 
             <div className='Form-div'>
+                <h1 className='form-header'> Share Your Feedback With Us!</h1>
+                <div className="transparent-line"></div>
+
                
                  <form onSubmit={handleSubmit} className='input-feedback'> 
                     
@@ -45,7 +48,7 @@ function Form({onClose}) {
                         <input placeholder="Type Here.." type="text" name="spotifyID" />
                     </label>
 
-                    <label  className="labelWithColor">How Would You Rate The Quality of the Spotify Playlist?
+                    <label  className="labelWithColor">How Would You Rate The Quality of the Spotify Playlist? (1-5)
                         
                     <input placeholder="e.g. 5" type="text" name="rateQuality"/>
                      
@@ -57,6 +60,7 @@ function Form({onClose}) {
                             rows = {5}
                             cols = {50}
                             name = "overallExperience"
+                            style={{ resize: 'none' }}
                         ></textarea>
                     </label>
 
@@ -66,6 +70,7 @@ function Form({onClose}) {
                             rows = {5}
                             cols = {50}
                             name = "delay"
+                            style={{ resize: 'none' }}
                         ></textarea>
                     </label>
 
@@ -75,6 +80,7 @@ function Form({onClose}) {
                             rows = {5}
                             cols = {50}
                             name = "features"
+                            style={{ resize: 'none' }}
                         ></textarea>
                     </label>
 
