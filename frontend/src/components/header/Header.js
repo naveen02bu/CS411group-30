@@ -6,7 +6,6 @@ import bookifyIcon from '../../images/bookify-icon.png';
 import Nav from '../nav/Nav';
 import Form from '../form-page/Form'; // Import the Form component
 
-
 function Header() { 
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
 
