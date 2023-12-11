@@ -21,9 +21,9 @@ load_dotenv()
 
 db_config = {
     'host': 'localhost',
-    'user': 'aaryanb3',
-    'password': 'Aaryan@2003^',
-    'database': 'project-app'
+    'user': 'root',
+    'password': 'Nellie724!',
+    'database': 'Bookify'
 }
 
 # Secret key for session
@@ -219,11 +219,16 @@ def create_playlist():
         print("Failed")
         return jsonify({"error": "Failed to create playlist", "status_code": response.status_code})
 
-@app.route('/save-feedback', methods=['POST'])
 @cross_origin(supports_credentials=True)
+@app.route('/save-feedback', methods=['POST'])
+
 def save_feedback():
     db_connection = None
     db_cursor = None
+
+    response = jsonify({"success": True})
+    response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
+    response.headers.add("Access-Control-Allow-Credentials", "true")
 
     try:
         # Establish a database connection
@@ -263,7 +268,7 @@ def save_feedback():
             db_cursor.close()
         if db_connection:
             db_connection.close()
-        
+    return response  
 # Run server when you run code
 if __name__ == '__main__': 
     app.run(host='0.0.0.0', debug=True)
