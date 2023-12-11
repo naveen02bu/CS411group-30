@@ -20,7 +20,7 @@ function Form({onClose}) {
         const delay = event.target.elements.delay.value;
         const features = event.target.elements.features.value;
 
-        // Created an object to send to the backend 
+        // Create an object to send to the backend 
         const feedbackData = { 
             spotifyID: spotifyID,
             rateQuality: rateQuality,
@@ -32,9 +32,7 @@ function Form({onClose}) {
           console.log('Feedback Data:', feedbackData); // To verify data in website's console
           onClose();
          
-          //Submit data to backend
-    
-
+    // Submit data to backend
     fetch('http://localhost:5000/save-feedback', {
         method: 'POST',
         headers: {
@@ -53,7 +51,7 @@ function Form({onClose}) {
     };
 
         return (
-
+            // Creates the Outline of the Form
             <div className='Form-div'>
                 <h1 className='form-header'> Share Your Feedback With Us!</h1>
                 <div className="transparent-line"></div>
