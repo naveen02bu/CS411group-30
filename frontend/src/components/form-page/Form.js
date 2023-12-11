@@ -3,13 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import React, {useState} from "react"
 
 function Form({onClose}) {
-    const [Rating, setMyRating] = useState("1")
-    const navigate = useNavigate();
-
-    const handleChange = (event) => {
-        setMyRating(event.target.value)
-    };
-
+  
     const handleSubmit = (event) => {
         event.preventDefault();  // Prevents the default form submission behavior
 

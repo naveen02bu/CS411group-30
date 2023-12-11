@@ -17,14 +17,6 @@ CORS(app)
 # Load environment variables
 load_dotenv()
 
-# Stores configuration settings related to database connection
-db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'Nellie724!',
-    'database': 'Bookify'
-}
-
 # Secret key for session
 app.secret_key = os.getenv('SECRET_KEY')
 
@@ -39,6 +31,16 @@ TOKEN_URL = 'https://accounts.spotify.com/api/token'
 API_BASE_URL = 'https://api.spotify.com/v1/'
 
 new_playlist_id = ''
+
+# Stores configuration settings related to database connection
+db_config = {
+    'host': os.getenv('DB_HOST'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD'),
+    'database': os.getenv('DB_NAME')
+}
+
+
 # Base endpoint
 @app.route('/') 
 def index():
