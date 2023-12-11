@@ -2,6 +2,8 @@ import requests
 import urllib.parse
 import json
 import os
+import mysql.connector
+
 
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -10,11 +12,19 @@ from flask import Flask, redirect, request, jsonify, session
 from flask_cors import CORS, cross_origin
 
 
+
 app = Flask(__name__)
 CORS(app)
 
 # Load environment variables
 load_dotenv()
+
+db_config = {
+    'host': 'localhost',
+    'user': 'aaryanb3',
+    'password': 'Aaryan@2003^',
+    'database': 'project-app'
+}
 
 # Secret key for session
 app.secret_key = os.getenv('SECRET_KEY')
@@ -53,6 +63,7 @@ def login():
         'auth_url': f"{AUTH_URL}?{urllib.parse.urlencode(params)}" 
     } 
     return jsonify(response_data)
+
 
 """ 
 Callback for after the user logins.
@@ -208,6 +219,51 @@ def create_playlist():
         print("Failed")
         return jsonify({"error": "Failed to create playlist", "status_code": response.status_code})
 
+@app.route('/save-feedback', methods=['POST'])
+@cross_origin(supports_credentials=True)
+def save_feedback():
+    db_connection = None
+    db_cursor = None
+
+    try:
+        # Establish a database connection
+        db_connection = mysql.connector.connect(**db_config)
+        db_cursor = db_connection.cursor()
+        
+
+        # Get feedback data from the request
+        feedback_data = request.json
+
+        # Insert feedback data into the database
+        insert_query = "INSERT INTO feedback (spotifyID, rateQuality, overallExperience, delay, features) VALUES (%s, %s, %s, %s, %s)"
+        insert_values = (
+            feedback_data.get('spotifyID'),
+            feedback_data.get('rateQuality'),
+            feedback_data.get('overallExperience'),
+            feedback_data.get('delay'),
+            feedback_data.get('features')
+        )
+        db_cursor.execute(insert_query, insert_values)
+
+        # Commit the changes
+        db_connection.commit()
+
+        print("Feedback data saved to the database.")
+        return jsonify({"success": True})
+
+    except Exception as e:
+        print("Error saving feedback data to the database:", e)
+        # Rollback the changes in case of an error
+        db_connection.rollback()
+        return jsonify({"error": "Failed to save feedback data to the database"})
+
+    finally:
+        # Close the database connection and cursor
+        if db_cursor:
+            db_cursor.close()
+        if db_connection:
+            db_connection.close()
+        
 # Run server when you run code
 if __name__ == '__main__': 
     app.run(host='0.0.0.0', debug=True)
