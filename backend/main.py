@@ -4,13 +4,11 @@ import json
 import os
 import mysql.connector
 
-
 from openai import OpenAI
 from dotenv import load_dotenv
 from datetime import datetime
 from flask import Flask, redirect, request, jsonify, session
 from flask_cors import CORS, cross_origin
-
 
 
 app = Flask(__name__)
@@ -19,6 +17,7 @@ CORS(app)
 # Load environment variables
 load_dotenv()
 
+# Stores configuration settings related to database connection
 db_config = {
     'host': 'localhost',
     'user': 'root',
@@ -63,7 +62,6 @@ def login():
         'auth_url': f"{AUTH_URL}?{urllib.parse.urlencode(params)}" 
     } 
     return jsonify(response_data)
-
 
 """ 
 Callback for after the user logins.
@@ -151,7 +149,6 @@ def create_playlist():
     title = data['title']
     author = data['author'] 
  
-   
     # Use OpenAI 
     # Define the user message
     book_input = f"based on the synopsis, genre, setting, language, and vibe of the book, Please provide a filled-out JSON file in this format {{\n  \"playlist_name\": \"\",\n  \"playlist_description\": \"\",\n  \"playlist_songs\": [\"\"]\n}}\nWith 10 songs from the last 50 years that fit the vibe of the book/movie \"{title}\" by {author} for the spotify api. The songs must be in this format: 'Artist - Song name' where 'Artist' and 'Song name' are replaced with the actual artist and song name. There must be no duplicate songs. Do not respond with anything other than the JSON file. If you can include songs from the soundtrack. The songs should be relevant to the intended audience, setting of book, etc.,. Do not respond with anything other than the JSON file."
@@ -168,7 +165,6 @@ def create_playlist():
     model='gpt-3.5-turbo',
     messages=[user_message],
     )
-
 
     # Extract and parse the assistant's reply as JSON
     completion_message = completion.choices[0].message.content
@@ -219,13 +215,14 @@ def create_playlist():
         print("Failed")
         return jsonify({"error": "Failed to create playlist", "status_code": response.status_code})
 
-@cross_origin(supports_credentials=True)
+# Endpoint to save user's feedback information to database
 @app.route('/save-feedback', methods=['POST'])
-
+@cross_origin(supports_credentials=True)
 def save_feedback():
     db_connection = None
     db_cursor = None
-
+     
+    # CORS-related Access
     response = jsonify({"success": True})
     response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
     response.headers.add("Access-Control-Allow-Credentials", "true")
@@ -269,6 +266,7 @@ def save_feedback():
         if db_connection:
             db_connection.close()
     return response  
+
 # Run server when you run code
 if __name__ == '__main__': 
     app.run(host='0.0.0.0', debug=True)
