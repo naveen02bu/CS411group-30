@@ -1,8 +1,16 @@
 # CS411group-30
-Derinell Rojas
-Nathan Van Zandt
-Naveen Vaidyamath
-Aaryan Bhutani
+**Derinell Rojas**
+
+**Nathan Van Zandt**
+
+
+**Naveen Vaidyamath**
+
+
+**Aaryan Bhutani**
+
+
+
 
 Demo Video Link: https://youtu.be/ILY2_nxc-iQ
 
