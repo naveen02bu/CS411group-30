@@ -1,5 +1,4 @@
 # CS411group-30
-## Members
 
 **Derinell Rojas**
 
@@ -11,10 +10,8 @@
 
 **Aaryan Bhutani**
 
-## Video 
-Demo Link: https://youtu.be/ILY2_nxc-iQ
+Demo Video Link: https://youtu.be/ILY2_nxc-iQ
 
-## About
 Bookify is an innovative web application designed to transform the reading experience by providing users with personalized playlists based on their book or movie selections. 
 The application allows users to input the title and author of a book to generate a Spotify playlist that aligns with the vibe, themes, and plot
 of their chosen content. This unique feature is powered by the ChatGPT API, enabling the selection of songs that perfectly resonate with the user's input. Seamless integration
