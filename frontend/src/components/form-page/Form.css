@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 .labelWithColor{
     color: midnightblue;
     font-size: 15px;
@@ -17,11 +18,9 @@
     background-color: #fff;
     box-shadow: 1px 1px 10px 10px #ddd;
     margin: auto; /* This will center the form horizontally */
-    margin-top: 150px; /* Adjust the top margin as needed */
+    margin-top: 150px; 
     padding: 20px 10px 10px 10px;
-
 }
-
 
 .input-feedback input, textarea{
     width: 100%;
@@ -32,23 +31,17 @@
 
 .submit-button{
     background-color: rgb(233, 249, 249);
-   
-    
     padding: 2px;
     border-radius: 1px;
     font-size: 15px;
     font-family: "Poppins";
     cursor: pointer;
-
     align-self: flex-end;
-    
-    /* Add margin to create space between the button and the form */
-    margin-top: 12px; /* Adjust the top margin as needed */
-    margin-left: 364px;
-    
+    margin-top: 12px; 
+    margin-left: 364px;  
 }
 
-form{ /*ensures that the submit button is on the form */
+form{
     display: flex;
     flex-direction: column;
     padding: 10px 10px 10px 10px;
