@@ -1,8 +1,10 @@
 import './Form.css'
+import { useNavigate } from 'react-router-dom';
 import React, {useState} from "react"
 
-function Form() {
+function Form({onClose}) {
     const [Rating, setMyRating] = useState("1")
+   
 
     const handleChange = (event) => {
         setMyRating(event.target.value)
@@ -28,13 +30,17 @@ function Form() {
           }; 
 
           console.log('Feedback Data:', feedbackData); // To verify data in website's console
-
+          onClose();
+         
           //Submit data to backend
     };
 
         return (
 
             <div className='Form-div'>
+                <h1 className='form-header'> Share Your Feedback With Us!</h1>
+                <div className="transparent-line"></div>
+
                
                  <form onSubmit={handleSubmit} className='input-feedback'> 
                     
@@ -42,7 +48,7 @@ function Form() {
                         <input placeholder="Type Here.." type="text" name="spotifyID" />
                     </label>
 
-                    <label  className="labelWithColor">How Would You Rate The Quality of the Spotify Playlist?
+                    <label  className="labelWithColor">How Would You Rate The Quality of the Spotify Playlist? (1-5)
                         
                     <input placeholder="e.g. 5" type="text" name="rateQuality"/>
                      
@@ -54,6 +60,7 @@ function Form() {
                             rows = {5}
                             cols = {50}
                             name = "overallExperience"
+                            style={{ resize: 'none' }}
                         ></textarea>
                     </label>
 
@@ -63,6 +70,7 @@ function Form() {
                             rows = {5}
                             cols = {50}
                             name = "delay"
+                            style={{ resize: 'none' }}
                         ></textarea>
                     </label>
 
@@ -72,6 +80,7 @@ function Form() {
                             rows = {5}
                             cols = {50}
                             name = "features"
+                            style={{ resize: 'none' }}
                         ></textarea>
                     </label>
 
