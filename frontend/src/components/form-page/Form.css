@@ -31,7 +31,9 @@
 
 .submit-button{
     background-color: rgb(233, 249, 249);
-    padding: 2px;
+    
+    border: 1px solid black;
+    padding: 5px;
     border-radius: 1px;
     font-size: 15px;
     font-family: "Poppins";
