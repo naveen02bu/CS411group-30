@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
 import './Header.css';
 import './FormModal.css';
-import { NavLink } from 'react-router-dom';
 import bookifyIcon from '../../images/bookify-icon.png';
 import Nav from '../nav/Nav';
-import Form from '../form-page/Form'; // Import the Form component
+import Review from '../review-form/Review'; 
+import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 
 function Header() { 
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
@@ -37,7 +37,7 @@ function Header() {
 
               {/* Render the Form component */}
 
-                <Form onClose={closeFormModal} />
+                <Review onClose={closeFormModal} />
             </div>
           </div>
         )}
