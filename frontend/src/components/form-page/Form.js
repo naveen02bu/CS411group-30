@@ -4,7 +4,7 @@ import React, {useState} from "react"
 
 function Form({onClose}) {
     const [Rating, setMyRating] = useState("1")
-   
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         setMyRating(event.target.value)
@@ -33,6 +33,23 @@ function Form({onClose}) {
           onClose();
          
           //Submit data to backend
+    
+
+    fetch('http://localhost:5000/save-feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(feedbackData),
+      })
+        .then((response) => response.json())
+        .then((responseData) => {
+          console.log('Server response:', responseData);
+          onClose();
+        })
+        .catch((error) => {
+          console.error('Error submitting feedback:', error);
+        });
     };
 
         return (
@@ -90,7 +107,7 @@ function Form({onClose}) {
              
              </div>  
             )
+        
         }
-    
 export default Form;
 
