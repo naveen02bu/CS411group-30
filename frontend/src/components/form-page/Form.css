@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 .labelWithColor{
-    color:rgb(17, 17, 17);
+    color: midnightblue;
     font-size: 15px;
     resize: none;
     margin-bottom: 15px;
@@ -55,7 +55,7 @@ form{ /*ensures that the submit button is on the form */
 }
 
 .form-header{
-    color: black;
+    color: midnightblue;
     text-align: center;
     font-size: 22px;
     font-weight:bold; 
