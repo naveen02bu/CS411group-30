@@ -1,10 +1,13 @@
 import './Review.css'
 
 function Review({onClose}) {
-  
+
+    
     const handleSubmit = (event) => {
         event.preventDefault();  // Prevents the default form submission behavior
-
+    
+   
+    
         // Provides access to each textbox 
         const spotifyID = event.target.elements.spotifyID.value;
         const rateQuality = event.target.elements.rateQuality.value;
@@ -100,4 +103,3 @@ function Review({onClose}) {
         
         }
 export default Review;
-
